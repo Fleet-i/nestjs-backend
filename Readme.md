@@ -58,3 +58,6 @@ Disclaimer:
 
 NestJS Interceptors -> 
 https://oneuptime.com/blog/post/2026-02-03-nestjs-interceptors/view
+
+4. Mongo:
+https://medium.com/globant/crud-application-using-nestjs-and-mongodb-99a0756adb76

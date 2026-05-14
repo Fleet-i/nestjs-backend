@@ -40,4 +40,9 @@ async deleteStudent(studentId: string): Promise<IStudent> {
    }
    return deletedStudent;
 }
+async saySomething():Promise<string>{
+    const deletedStudent = await this.studentModel.deleteOne({roleNumber:101});
+    console.log("YO MAAAN!",deletedStudent)
+    return "HAHA";
+  }
 }

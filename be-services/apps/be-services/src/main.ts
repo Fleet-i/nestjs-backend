@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import otelSDK from 'common-utils/tracing';
+import otelSDK from 'common/analytics/tracing';
 import { ValidationPipe } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';

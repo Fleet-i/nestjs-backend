@@ -1,0 +1,53 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+  logging:
+    loglevel: debug 
+  zipkin:
+    endpoint: "http://zipkin-all-in-one:9411/api/v2/spans"
+    format: proto
+  otlp/jaeger:
+    endpoint: jaeger-all-in-one:4317
+    tls:
+      insecure: true
+
+processors:
+  batch:
+
+connectors:
+  spanmetrics:
+    dimensions:
+      - name: service_name
+      - name: span_name
+
+    histogram:
+      explicit:
+        buckets: [100ms, 200ms, 500ms, 1s, 2s, 5s]
+
+    namespace: traces.spanmetrics
+
+extensions:
+  health_check:
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging, zipkin, otlp/jaeger, spanmetrics]
+    metrics/spanmetrics:
+      receivers: [spanmetrics]
+      exporters: [prometheus]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheus]

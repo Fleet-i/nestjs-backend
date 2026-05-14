@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/be-services/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/be-services/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/be-services",
+  "projects": {
+    "ai-orchestrator": {
+      "type": "application",
+      "root": "apps/ai-orchestrator",
+      "entryFile": "main",
+      "sourceRoot": "apps/ai-orchestrator/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ai-orchestrator/tsconfig.app.json"
+      }
+    },
+    "be-services": {
+      "type": "application",
+      "root": "apps/be-services",
+      "entryFile": "main",
+      "sourceRoot": "apps/be-services/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/be-services/tsconfig.app.json"
+      }
+    },
+    "booking-app": {
+      "type": "application",
+      "root": "apps/booking-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/booking-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/booking-app/tsconfig.app.json"
+      }
+    },
+    "tracking-app": {
+      "type": "application",
+      "root": "apps/tracking-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/tracking-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/tracking-app/tsconfig.app.json"
+      }
+    }
+  }
+}

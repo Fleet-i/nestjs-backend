@@ -10,19 +10,19 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { StudentController } from 'common/mongo-orm/student/student.controller';
 import { StudentSchema } from 'common/mongo-orm/student/student.scehma';
 import { StudentService } from 'common/mongo-orm/student/student.service';
-import { MongoModule } from 'common/mongo-orm/student/student.module';
+//import { MongoModule } from 'common/mongo-orm/student/student.module';
+import { BookingModuleForMongo } from 'common/mongo-orm/book/booking.module';
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal:true}),
     // MongooseModule.forRoot(`${process.env.ATLAS_MONGO_URI}`),
     // MongooseModule.forFeature([{ name: 'Student', schema: StudentSchema }]),
-    MongoModule,
+    BookingModuleForMongo,
     BookingAppModule, 
     AiOrchestratorModule
   ],
   controllers: [
     AppController
-    //StudentController
   ],
   providers: [
     AppService,
@@ -30,7 +30,6 @@ import { MongoModule } from 'common/mongo-orm/student/student.module';
       provide:APP_INTERCEPTOR,
       useClass:ExampleInterceptor
     }
-    //StudentService
   ],
 })
 export class AppModule {}

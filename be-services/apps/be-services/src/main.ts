@@ -1,7 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import otelSDK from 'common/analytics/tracing';
-import { ValidationPipe } from '@nestjs/common';
+//import { ValidationPipe } from '@nestjs/common';
+import { ParseUUIDPipe } from 'common/pipes/string.pipe';
 import { Logger } from 'nestjs-pino';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 import { BookingAppModule } from 'apps/booking-app/src/booking-app.module';
@@ -13,8 +14,15 @@ async function bootstrap() {
   await otelSDK.start();
 
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ParseUUIDPipe())
   //app.useLogger(app.get(Logger));
-  app.useGlobalPipes(new ValidationPipe());
+  // app.useGlobalPipes(new ValidationPipe({
+  //     transform: true,
+  //     transformOptions: {
+  //       enableImplicitConversion: true,
+  //     },
+  //     whitelist: true,
+  //   }));
   await app.listen(process.env.PORT ?? 3000);
   // const bookingApp = await NestFactory.createMicroservice<MicroserviceOptions>(
   //   BookingAppModule,

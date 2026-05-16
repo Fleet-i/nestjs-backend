@@ -61,3 +61,7 @@ https://oneuptime.com/blog/post/2026-02-03-nestjs-interceptors/view
 
 4. Mongo:
 https://medium.com/globant/crud-application-using-nestjs-and-mongodb-99a0756adb76
+CRUD - https://dev.to/nahuleswaran_s24cb031_b4/crud-operations-in-mongodb-student-management-system-78i
+
+5. NestJS Validation Pipes
+https://dev.to/italoqueiroz/nestjs-validationpipe-ensuring-secure-input-contracts-3dng

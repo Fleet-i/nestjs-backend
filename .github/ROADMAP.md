@@ -1,4 +1,4 @@
-# Product Roadmap Status 
+# Product Roadmap Status
 
 **Current phase:** MVP 0.1  
 **Current status:** 🟡 In Progress

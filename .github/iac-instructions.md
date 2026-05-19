@@ -1,4 +1,4 @@
-## API / IaC Deployment Instructions 
+## API / IaC Deployment Instructions
 
 - Authenticate only once at API Gateway; introduce a dedicated auth service only if necessary.
 - JavaScript services must be implemented as NestJS apps packaged for Lambda.
